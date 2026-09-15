@@ -1,0 +1,4 @@
+*.pyc
+__pycache__/
+comments.db
+comments_backup.db

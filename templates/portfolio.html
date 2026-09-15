@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sivapriya Thayaparan | Data • Cloud • AI</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #243238;
+            background: #efe6da;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background: #fbf7f1;
+            padding: 16px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0c7375;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #243238;
+            margin-left: 28px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #df684c;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 610px;
+            padding: 65px 7%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 10% 20%,
+                    rgba(12,115,117,0.12) 0,
+                    rgba(12,115,117,0.12) 2px,
+                    transparent 3px),
+                radial-gradient(circle at 82% 55%,
+                    rgba(223,104,76,0.12) 0,
+                    rgba(223,104,76,0.12) 2px,
+                    transparent 3px),
+                linear-gradient(135deg, #e4d5c5, #f0e5da);
+
+            background-size: 34px 34px, 48px 48px, auto;
+        }
+
+        .focus-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .focus-box {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 17px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.72);
+            border: 1px solid rgba(12,115,117,0.20);
+            color: #0c7375;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .focus-box .icon {
+            color: #df684c;
+            font-size: 21px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            line-height: 1.1;
+            margin: 0 0 14px;
+        }
+
+        .hero h1 span {
+            color: #df684c;
+        }
+
+        .hero h2 {
+            font-size: 21px;
+            font-weight: 500;
+            color: #4d5e61;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            max-width: 760px;
+            color: #4f6064;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 18px;
+            background: #0c7375;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            background: #095d5f;
+        }
+
+        .photo-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 20px;
+            border: 5px solid rgba(255,255,255,0.78);
+            box-shadow: 0 18px 38px rgba(0,0,0,0.16);
+        }
+
+        /* GENERAL */
+
+        .section {
+            padding: 60px 7%;
+            background: #efe6da;
+        }
+
+        .section-alt {
+            background: #e1d5c7;
+        }
+
+        .section h2 {
+            color: #0c7375;
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .section-intro {
+            max-width: 950px;
+            font-size: 16px;
+            color: #4f6064;
+        }
+
+        /* ABOUT + SKILLS */
+
+        .about-skills {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 45px;
+        }
+
+        .about-highlight {
+            margin-top: 20px;
+            padding: 18px 20px;
+            background: #f9f4ed;
+            border-left: 4px solid #df684c;
+            border-radius: 8px;
+        }
+
+        .skill-groups {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: #faf6ef;
+            padding: 20px;
+            border-radius: 13px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.06);
+        }
+
+        .skill-card h3 {
+            margin-top: 0;
+            color: #0c7375;
+            font-size: 18px;
+        }
+
+        .skill-card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #4f6064;
+            font-size: 14px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .experience-card {
+            background: #faf6ef;
+            padding: 20px;
+            border-radius: 13px;
+            border-top: 4px solid #0c7375;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        .experience-card h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .company {
+            color: #df684c;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .date {
+            color: #718083;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .experience-card p {
+            font-size: 14px;
+            color: #4f6064;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #faf6ef;
+            padding: 22px;
+            border-radius: 13px;
+            border-left: 4px solid #df684c;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+        }
+
+        .project-tags span {
+            display: inline-block;
+            background: #dcebea;
+            color: #0c7375;
+            border-radius: 14px;
+            padding: 4px 9px;
+            margin: 4px 4px 0 0;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* EDUCATION */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .education-card {
+            background: #faf6ef;
+            padding: 22px;
+            text-align: center;
+            border-radius: 13px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        .education-logo {
+            height: 75px;
+            max-width: 150px;
+            object-fit: contain;
+            margin-bottom: 14px;
+        }
+
+        .education-card h3 {
+            color: #0c7375;
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #26383a;
+            color: #dce5e5;
+            text-align: center;
+            padding: 22px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            .hero,
+            .about-skills {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-groups {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .experience-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            nav a {
+                margin-left: 12px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="brand">
+        ST
+    </div>
+
+    <div>
+        <a href="{{ url_for('index') }}">SCRATCHPAD</a>
+
+        <a href="https://www.linkedin.com/in/thayaparan-sivapriya/"
+           target="_blank">
+            LINKEDIN
+        </a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div>
+
+        <div class="focus-row">
+
+            <div class="focus-box">
+                <span class="icon">▦</span>
+                DATA
+            </div>
+
+            <div class="focus-box">
+                <span class="icon">☁</span>
+                CLOUD
+            </div>
+
+            <div class="focus-box">
+                <span class="icon">✦</span>
+                AI
+            </div>
+
+        </div>
+
+        <h1>
+            Hi, I'm
+            <span>Sivapriya Thayaparan</span>
+        </h1>
+
+        <h2>
+           Building Data, Cloud and AI solutions through Devops
+        </h2>
+
+        <p>
+            I am a technology professional with experience in data science,
+            data analytics and backend technologies. My background includes
+            Python, SQL, AWS, financial data processing and cloud-based
+            data systems.
+        </p>
+
+        <p>
+            I have completed professional training in Machine Learning,
+            Generative AI and Large Language Models, and I am currently
+            developing my Cloud and DevOps expertise. My focus is on
+            building practical solutions across Data, Cloud and AI.
+        </p>
+
+        <a href="#projects" class="hero-button">
+            VIEW MY PROJECTS
+        </a>
+
+    </div>
+
+
+    <div class="photo-wrapper">
+
+        <img
+            src="{{ url_for('static', filename='profile_photo.png') }}"
+            alt="Sivapriya Thayaparan"
+            class="profile-photo"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT + SKILLS -->
+
+<section class="section section-alt">
+
+    <div class="about-skills">
+
+        <div>
+
+            <h2>About Me</h2>
+
+            <p class="section-intro">
+                My career has included data science, backend development,
+                software engineering and enterprise systems across fintech,
+                semiconductor and insurance environments.
+            </p>
+
+            <p class="section-intro">
+                My recent focus is on Data, Cloud and AI. I have completed
+                professional training in Data Science & AI, including
+                Machine Learning, Deep Learning, Generative AI and
+                Large Language Models, and I am currently strengthening
+                my Cloud and DevOps skills.
+            </p>
+
+            <div class="about-highlight">
+                My goal is to apply my data and technology experience
+                together with modern Cloud and AI capabilities to solve
+                practical business problems.
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h2>Technical Skills</h2>
+
+            <div class="skill-groups">
+
+
+                <div class="skill-card">
+
+                    <h3>Data & AI</h3>
+
+                    <ul>
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>Pandas, NumPy</li>
+                        <li>Data Analytics</li>
+                        <li>Power BI</li>
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Generative AI</li>
+                        <li>Large Language Models</li>
+                        <li>BigQuery</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Cloud & DevOps</h3>
+
+                    <ul>
+                        <li>AWS</li>
+                        <li>Microsoft Azure</li>
+                        <li>Linux</li>
+                        <li>Git & GitHub</li>
+                        <li>Docker</li>
+                        <li>Terraform</li>
+                        <li>Ansible</li>
+                        <li>Flask</li>
+                        <li>REST APIs</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Additional Development</h3>
+
+                    <ul>
+                        <li>Go (Golang)</li>
+                        <li>C#</li>
+                        <li>ASP.NET</li>
+                        <li>SQL Server</li>
+                        <li>MySQL</li>
+                        <li>Amazon Redshift</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="section">
+
+    <h2>Professional Experience & Development</h2>
+
+    <div class="experience-grid">
+
+
+        <div class="experience-card">
+
+            <h3>
+                Cloud Support & DevOps Trainee
+            </h3>
+
+            <div class="company">
+                Generation Singapore
+            </div>
+
+            <div class="date">
+                July 2026 – October 2026
+            </div>
+
+            <p>
+                Full-time Cloud Support & DevOps programme covering
+                Linux, Azure, Python, Git, Docker, Terraform,
+                Ansible, networking, troubleshooting and automation.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <h3>
+                Data Scientist
+            </h3>
+
+            <div class="company">
+                Actelligent Pte Ltd
+            </div>
+
+            <div class="date">
+                February 2022 – August 2025
+            </div>
+
+            <p>
+                Processed financial datasets using Python, Pandas and NumPy
+                and implemented financial metrics used in portfolio analytics.
+                Worked with AWS S3, Amazon Redshift and REST APIs.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <h3>
+                Software Engineer
+            </h3>
+
+            <div class="company">
+                Micron Semiconductor Asia
+            </div>
+
+            <div class="date">
+                February 2007 – July 2007
+            </div>
+
+            <p>
+                Maintained and enhanced existing web applications
+                using C#, ASP.NET and SQL Server and provided
+                production support.
+            </p>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <h3>
+                System Analyst
+            </h3>
+
+            <div class="company">
+                Magnetron Insurance Brokers
+            </div>
+
+            <div class="date">
+                August 2003 – August 2005
+            </div>
+
+            <p>
+                Maintained database-driven applications using ASP
+                and SQL Server and supported database administration,
+                stored procedures, backups and system upgrades.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="section section-alt" id="projects">
+
+    <h2>Selected Projects</h2>
+
+    <div class="projects-grid">
+
+
+        <div class="project-card">
+
+            <h3>
+                AI Car Recommendation System
+            </h3>
+
+            <p>
+                Built an AI-powered recommendation application using
+                Gemini and prompt engineering to compare vehicle
+                features and generate personalised recommendations.
+            </p>
+
+            <div class="project-tags">
+                <span>Gemini</span>
+                <span>Generative AI</span>
+                <span>Prompt Engineering</span>
+            </div>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>
+                Big Data Engineering Project
+            </h3>
+
+            <p>
+                Worked with BigQuery, dbt, Dagster and Streamlit
+                to transform, analyse and visualise data through
+                a modern data engineering workflow.
+            </p>
+
+            <div class="project-tags">
+                <span>BigQuery</span>
+                <span>dbt</span>
+                <span>Dagster</span>
+                <span>Streamlit</span>
+            </div>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>
+                Flask Scratchpad Web Application
+            </h3>
+
+            <p>
+                Built a Flask application with authentication,
+                login/logout functionality, comments and SQLite.
+            </p>
+
+            <div class="project-tags">
+                <span>Python</span>
+                <span>Flask</span>
+                <span>SQLite</span>
+                <span>Git</span>
+            </div>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>
+                Network Scanner Dashboard
+            </h3>
+
+            <p>
+                Built a Linux-based network scanning dashboard
+                using Nmap and scheduled automation.
+            </p>
+
+            <div class="project-tags">
+                <span>Linux</span>
+                <span>Nmap</span>
+                <span>Automation</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section class="section">
+
+    <h2>Education & Professional Qualifications</h2>
+
+    <div class="education-grid">
+
+
+        <div class="education-card">
+
+            <img
+                src="{{ url_for('static', filename='ntu logo.webp') }}"
+                alt="Nanyang Technological University"
+                class="education-logo"
+            >
+
+            <h3>
+                Advanced Professional Certificate in Data Science & AI
+            </h3>
+
+            <p>
+                Nanyang Technological University
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <img
+                src="{{ url_for('static', filename='nus logo.jpg') }}"
+                alt="National University of Singapore"
+                class="education-logo"
+            >
+
+            <h3>
+                FinTech Associate & Developer Programme
+            </h3>
+
+            <p>
+                National University of Singapore
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <img
+                src="{{ url_for('static', filename='University_of_Peradeniya_logo.webp') }}"
+                alt="University of Peradeniya"
+                class="education-logo"
+            >
+
+            <h3>
+                B.Sc. Electrical & Electronic Engineering
+            </h3>
+
+            <p>
+                University of Peradeniya
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Sivapriya Thayaparan
+</footer>
+
+</body>
+
+</html>

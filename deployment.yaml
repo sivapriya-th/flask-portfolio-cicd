@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: flask-portfolio
+  namespace: flask-app
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      component: flask-portfolio
+
+  template:
+    metadata:
+      labels:
+        component: flask-portfolio
+
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+
+      containers:
+        - name: flask-portfolio
+          image: priyadocker2025/flask-portfolio:latest
+
+          ports:
+            - containerPort: 5000
+
+          imagePullPolicy: Always
+
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: flask-secret
+                  key: MYSQL_ROOT_PASSWORD
+
+            - name: FLASK_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: flask-secret
+                  key: FLASK_SECRET_KEY
+
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: flask-secret
+                  key: ADMIN_PASSWORD
